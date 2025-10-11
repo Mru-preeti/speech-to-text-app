@@ -1,0 +1,6 @@
+echo "flask
+flask-cors
+pydub
+requests
+flask-socketio
+gunicorn" > requirements.txt
