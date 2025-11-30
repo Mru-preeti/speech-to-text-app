@@ -3,7 +3,7 @@ Real-time speech recognition web app.
 
 ## Structure
 - frontend/: UI (React)
-- backend/: API & audio processing
+- backend/: API & audio processingnpx tailwindcss init -p
 
 ## Setup
 1. Clone repo

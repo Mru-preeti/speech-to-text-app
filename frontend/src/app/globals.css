@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -------------------------------
+   Background Gradient Animations
+--------------------------------*/
+@keyframes gradientMove {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+.animate-gradient {
+  background-size: 300% 300%;
+  animation: gradientMove 15s ease infinite;
+}
+
+/* Floating Blobs */
+@keyframes bounceSlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(50px); }
+}
+
+.animate-bounce-slow {
+  animation: bounceSlow 6s ease-in-out infinite;
+}
+
+@keyframes bounceSlower {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-60px); }
+}
+
+.animate-bounce-slower {
+  animation: bounceSlower 10s ease-in-out infinite;
+}
+
+/* -------------------------------
+   PARTICLE RINGS
+--------------------------------*/
+.particles {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.particles::before,
+.particles::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, transparent 60%);
+  animation: drift 10s infinite alternate ease-in-out;
+}
+
+.particles::after {
+  top: 50%;
+  left: 70%;
+  animation-duration: 14s;
+  background: radial-gradient(circle, rgba(255,0,150,0.15) 0%, transparent 60%);
+}
+
+@keyframes drift {
+  0% { transform: translate(-100px, -100px) scale(1); }
+  100% { transform: translate(100px, 100px) scale(1.4); }
+}
+.wave {
+  width: 120px;
+  height: 30px;
+  background: url("data:image/svg+xml;utf8,\
+  <svg xmlns='http://www.w3.org/2000/svg' width='120' height='30'>\
+  <polyline points='0,15 20,5 40,25 60,10 80,20 100,8 120,15'\
+  stroke='purple' fill='transparent' stroke-width='3' stroke-linecap='round'/>\
+  </svg>") repeat-x;
+  animation: waveMove 2s linear infinite;
+}
+
+@keyframes waveMove {
+  0% { background-position-x: 0; }
+  100% { background-position-x: 120px; }
+}
